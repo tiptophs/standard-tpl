@@ -1,0 +1,30 @@
+{
+  "name": "standard-tpl",
+  "version": "1.0.0",
+  "description": "这是一个较为完善的脚手架工具，配置了vue开发环境，有比较健全的注释代码。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiptophs/standard-tpl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiptophs/standard-tpl/issues"
+  },
+  "homepage": "https://github.com/tiptophs/standard-tpl#readme",
+  "devDependencies": {
+    "editorconfig": "^0.15.3",
+    "eslint": "^7.4.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^6.2.2",
+    "prettier": "^2.0.5"
+  }
+}
