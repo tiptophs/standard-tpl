@@ -56,7 +56,7 @@ module.exports = {
   module: {
     rules: [
       // 确认是否开启eslint
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
     ],
   },
 };

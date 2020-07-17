@@ -3,8 +3,8 @@
  * @version:1.0
  * @Author: tiptop
  * @Date: 2020-07-15 23:12:02
- * @LastEditors: tiptop
- * @LastEditTime: 2020-07-15 23:21:17
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-07-17 16:06:11
  */
 
 const path = require("path");
@@ -14,16 +14,16 @@ module.exports = {
   dev: {
     // Paths相关的配置
     assetsSubDirectory: "static",
-    assetsPublicPath: "/",
-    proxyTable: {},
+    assetsPublicPath: "/", // 输出位置
+    proxyTable: {}, // 代理配置
 
     // dev-server 的配置
     host: "localhost", // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false, // 自动打开浏览器
-    errorOverlay: true,
+    errorOverlay: true, // 运行错误的全屏警告
     notifyOnErrors: true,
-    poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+    poll: false, // 轮询文件
 
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
@@ -37,7 +37,11 @@ module.exports = {
      * Source Maps
      */
 
-    // https://webpack.js.org/configuration/devtool/#development
+    // 增加映射文件
+    // source-map 增加映射文件，大全
+    // eval-source-map 不会生成文件，但可以显示行和列，集成在生成的js内部
+    // cheap-module-source-map不会产生列，但是是一个单独的映射文件,保留下来调试
+    // cheap-module-eval-source-map 不会产生列，不会生成文件，集成在js内部
     devtool: "cheap-module-eval-source-map",
 
     // If you have problems debugging vue-files in devtools,
