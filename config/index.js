@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-15 23:12:02
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-07-17 16:06:11
+ * @LastEditTime: 2020-07-17 17:08:15
  */
 
 const path = require("path");
@@ -13,7 +13,7 @@ module.exports = {
   // 开发环境配置
   dev: {
     // Paths相关的配置
-    assetsSubDirectory: "static",
+    assetsSubDirectory: "static", // 静态资源路径
     assetsPublicPath: "/", // 输出位置
     proxyTable: {}, // 代理配置
 

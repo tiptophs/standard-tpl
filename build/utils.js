@@ -1,3 +1,6 @@
+const path = require("path");
+const packageConfig = require("../package.json");
+
 /**
  *抛出错误的通知回调
  */

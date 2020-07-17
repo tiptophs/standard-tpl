@@ -3,14 +3,14 @@
  * @version:1.0
  * @Author: tiptop
  * @Date: 2020-07-15 22:46:15
- * @LastEditors: tiptop
- * @LastEditTime: 2020-07-15 23:08:57
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-07-17 17:23:51
  */
 
 // 配置合并依赖(新版本变成webpack-merge内部的smart)
-const { smart } = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const prodEnv = require("./prod.env");
 
-module.exports = smart(prodEnv, {
+module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
 });

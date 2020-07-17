@@ -1,11 +1,13 @@
 /**
  * 运行环境的开发
  */
-const { smart } = require("webpack-merge"); // 配置合并依赖
+const webpack = require("webpack"); // 引入webpack
+const { merge } = require("webpack-merge"); // 配置合并依赖
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin"); // 该组件可以更具依赖的html模板，生成一个内存中的html模板
 const portfinder = require("portfinder"); // 端口查找
 const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin"); // webpack错误友好插件
+const CopyWebpackPlugin = require("copy-webpack-plugin"); // copy插件
 const baseWebpackConfig = require("./webpack.base.conf"); // 基础文件配置
 // 引入配置文件
 const config = require("../config");
@@ -16,7 +18,7 @@ const utils = require("./utils");
 const { HOST } = process.env;
 const PORT = process.env.PORT && Number(process.env.PORT);
 
-const devWebpackConfig = smart(baseWebpackConfig, {
+const devWebpackConfig = merge(baseWebpackConfig, {
   // 模块
   module: {
     // rules: utils.styleLoaders({
@@ -54,9 +56,14 @@ const devWebpackConfig = smart(baseWebpackConfig, {
     },
   },
   // 插件
-  pulgin: [
+  plugins: [
+    // webpack 内置变量模板
+    new webpack.DefinePlugin({
+      "process.env": require("../config/dev.env"), // 重置process.env
+    }),
+    // html内存模板插件
     new HtmlWebpackPlugin({
-      template: "../public/index.html", // 指定依赖的模板文件
+      template: "public/index.html", // 指定依赖的模板文件
       filename: "index.html", // 生成的文件名称
       minify: {
         removeAttributeQuotes: true, // 删除多余的双引号
@@ -66,6 +73,15 @@ const devWebpackConfig = smart(baseWebpackConfig, {
       inject: true, // script文件的插入位置
       // chunks:[]                          //多文件打包，内部填写name名称
       // excludeChunks:[]                   //忽略的模块
+    }),
+    // copy 静态资源插件
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "../static"),
+          to: config.dev.assetsSubDirectory,
+        },
+      ],
     }),
   ],
 });
