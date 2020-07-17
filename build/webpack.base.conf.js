@@ -1,3 +1,12 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: tiptop
+ * @Date: 2020-07-14 00:01:59
+ * @LastEditors: tiptop
+ * @LastEditTime: 2020-07-16 23:46:48
+ */
+
 /**
  * creator: tiptop
  * time:2020/7/15
@@ -16,16 +25,16 @@ function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
 // 定义eslint的配置
-const createLintingRule = () => ({
-  test: /\.(js|vue)$/,
-  loader: "eslint-loader",
-  enforce: "pre",
-  include: [resolve("src"), resolve("test")],
-  options: {
-    formatter: require("eslint-friendly-formatter"),
-    emitWarning: !config.dev.showEslintErrorsInOverlay,
-  },
-});
+// const createLintingRule = () => ({
+//   test: /\.(js|vue)$/,
+//   loader: "eslint-loader",
+//   enforce: "pre",
+//   include: [resolve("src"), resolve("test")],
+//   options: {
+//     formatter: require("eslint-friendly-formatter"),
+//     emitWarning: !config.dev.showEslintErrorsInOverlay,
+//   },
+// });
 
 // +--------------webpack配置部分-------------------------
 module.exports = {
@@ -56,7 +65,7 @@ module.exports = {
   module: {
     rules: [
       // 确认是否开启eslint
-      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      // ...(config.dev.useEslint ? [createLintingRule()] : []),
     ],
   },
 };
