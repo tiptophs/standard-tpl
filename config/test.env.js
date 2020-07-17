@@ -3,13 +3,13 @@
  * @version:1.0
  * @Author: tiptop
  * @Date: 2020-07-15 22:47:01
- * @LastEditors: tiptop
- * @LastEditTime: 2020-07-15 23:11:19
+ * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-07-17 17:24:11
  */
 
-const { smart } = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const devEnv = require("./dev.env");
 
-module.exports = smart(devEnv, {
+module.exports = merge(devEnv, {
   NODE_ENV: '"testing"',
 });

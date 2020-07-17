@@ -29,7 +29,7 @@ module.exports = {
   devServer: {
     port: 3000, // 端口
     progress: true, // 打包显示进度条
-    contentBase: "./dist", // 内存打包的地址
+    contentBase: "./dist", // 告诉服务器从哪里提供内容。只有在你想要提供静态文件时才需要
     open: true, // 运行服务后自动在浏览器内打开
     compress: true, // Gzip压缩、
     publicPath: "/", // 打包虚拟资源路径
