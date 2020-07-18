@@ -3,8 +3,8 @@
  * @version:1.0
  * @Author: tiptop
  * @Date: 2020-07-15 23:12:02
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-07-17 17:08:15
+ * @LastEditors: tiptop
+ * @LastEditTime: 2020-07-17 23:16:34
  */
 
 const path = require("path");
@@ -65,10 +65,9 @@ module.exports = {
     /**
      * Source Maps
      */
-
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
-    devtool: "#source-map",
+    devtool: "source-map",
 
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.

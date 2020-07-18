@@ -61,6 +61,9 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       "process.env": require("../config/dev.env"), // 重置process.env
     }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(), // 当开启 HMR 的时候使用该插件会显示模块的相对路径，建议用于开发环境。
+    new webpack.NoEmitOnErrorsPlugin(), // 在编译出现错误时，使用 NoEmitOnErrorsPlugin 来跳过输出阶段。这样可以确保输出资源不会包含错误。
     // html内存模板插件
     new HtmlWebpackPlugin({
       template: "public/index.html", // 指定依赖的模板文件
@@ -112,7 +115,7 @@ module.exports = new Promise((resolve, reject) => {
             : undefined,
         })
       );
-
+      // 返回数据
       resolve(devWebpackConfig);
     }
   });

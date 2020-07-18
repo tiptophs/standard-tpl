@@ -4,19 +4,10 @@
  * @Author: tiptop
  * @Date: 2020-07-14 00:01:59
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-16 23:46:48
+ * @LastEditTime: 2020-07-18 21:56:25
  */
-
-/**
- * creator: tiptop
- * time:2020/7/15
- * description: webpack基础配置文件
- * version:1.0
- */
-
-// 引入nodejs内部路径组件
 const path = require("path");
-// 引入配置文件
+const utils = require("./utils");
 const config = require("../config");
 
 // +--------------内部公用配置和函数----------------------
@@ -25,19 +16,21 @@ function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
 // 定义eslint的配置
-// const createLintingRule = () => ({
-//   test: /\.(js|vue)$/,
-//   loader: "eslint-loader",
-//   enforce: "pre",
-//   include: [resolve("src"), resolve("test")],
-//   options: {
-//     formatter: require("eslint-friendly-formatter"),
-//     emitWarning: !config.dev.showEslintErrorsInOverlay,
-//   },
-// });
+const createLintingRule = () => ({
+  test: /\.(js|vue)$/,
+  loader: "eslint-loader",
+  enforce: "pre",
+  include: [resolve("src"), resolve("test")],
+  options: {
+    formatter: require("eslint-friendly-formatter"),
+    emitWarning: !config.dev.showEslintErrorsInOverlay,
+  },
+});
 
 // +--------------webpack配置部分-------------------------
 module.exports = {
+  // 基础目录
+  context: path.resolve(__dirname, "../"),
   // 入口
   entry: {
     app: "./src/main.js",
@@ -65,7 +58,44 @@ module.exports = {
   module: {
     rules: [
       // 确认是否开启eslint
-      // ...(config.dev.useEslint ? [createLintingRule()] : []),
+      ...(config.dev.useEslint ? [createLintingRule()] : []),
+      {
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 8 * 1024,
+          name: utils.assetsPath("img/[name].[hash:7].[ext]"),
+        },
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|acc)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 8 * 1024,
+          name: utils.assetsPath("media/[name].[hash:7].[ext]"),
+        },
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: "url-loader",
+        options: {
+          limit: 8 * 1024,
+          name: utils.assetsPath("fonts/[name].[hash:7].[ext]"),
+        },
+      },
     ],
+  },
+  // 不知道这是什么意思
+  node: {
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
+    setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
+    dgram: "empty",
+    fs: "empty",
+    net: "empty",
+    tls: "empty",
+    child_process: "empty",
   },
 };

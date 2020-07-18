@@ -1,9 +1,18 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: tiptop
+ * @Date: 2020-07-18 09:32:06
+ * @LastEditors: tiptop
+ * @LastEditTime: 2020-07-18 10:52:09
+ */
+
 require("./check-versions")();
 
 process.env.NODE_ENV = "production";
 
-const ora = require("ora");
-const rm = require("rimraf");
+const ora = require("ora"); // ora包用于显示加载中的效果，类似于前端页面的loading效果。
+const rm = require("rimraf"); // rimraf 包的作用：以包的形式包装rm -rf命令，用来删除文件和文件夹的，不管文件夹是否为空，都可删除
 const path = require("path");
 const chalk = require("chalk");
 const webpack = require("webpack");
@@ -13,6 +22,7 @@ const webpackConfig = require("./webpack.prod.conf");
 const spinner = ora("building for production...");
 spinner.start();
 
+// 删除static目录
 rm(
   path.join(config.build.assetsRoot, config.build.assetsSubDirectory),
   (err) => {

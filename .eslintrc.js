@@ -1,3 +1,12 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: tiptop
+ * @Date: 2020-07-12 23:28:53
+ * @LastEditors: tiptop
+ * @LastEditTime: 2020-07-18 10:48:03
+ */
+
 module.exports = {
   env: {
     browser: true,
@@ -16,5 +25,13 @@ module.exports = {
   plugins: ["vue"],
   rules: {
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "global-require": 0,
+    "func-names": 0,
+    "guard-for-in": 0,
+    "no-restricted-syntax": 0,
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    "no-console": 0,
+    "import/no-unresolved": 0,
+    "no-shadow": 0,
   },
 };
