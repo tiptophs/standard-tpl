@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-12 23:28:53
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 10:48:03
+ * @LastEditTime: 2020-07-18 22:03:56
  */
 
 module.exports = {
@@ -33,5 +33,6 @@ module.exports = {
     "no-console": 0,
     "import/no-unresolved": 0,
     "no-shadow": 0,
+    "no-param-reassign": 0,
   },
 };

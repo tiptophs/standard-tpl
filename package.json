@@ -24,6 +24,7 @@
   "devDependencies": {
     "chalk": "^4.1.0",
     "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^3.6.0",
     "editorconfig": "^0.15.3",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
@@ -39,6 +40,7 @@
     "node-notifier": "^7.0.1",
     "ora": "^4.0.5",
     "portfinder": "^1.0.26",
+    "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "semver": "^7.3.2",

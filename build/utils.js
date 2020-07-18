@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-17 22:04:00
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-17 23:21:14
+ * @LastEditTime: 2020-07-18 22:04:52
  */
 
 const path = require("path");
@@ -42,7 +42,7 @@ exports.createNotifierCallback = () => {
 
 // cssloader处理方式
 exports.cssLoaders = function (options) {
-  options = options || {};
+  options = options || {}; // 这样写的好处，可以防止在options为undefine的时候确保他是一个对象
 
   const cssLoader = {
     loader: "css-loader",
