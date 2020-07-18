@@ -4,11 +4,11 @@
  * @Author: tiptop
  * @Date: 2020-07-17 22:04:00
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 22:04:52
+ * @LastEditTime: 2020-07-18 23:08:42
  */
 
 const path = require("path");
-const packageConfig = require("../package.json");
+const packageConfig = require("../../package.json");
 const config = require("../config");
 
 exports.assetsPath = function (_path) {

@@ -1,26 +1,30 @@
 /*
- * @Descripttion:
- * @version:
+ * @Descripttion: webpack 基础配置文件
+ * @version:1.0
  * @Author: tiptop
  * @Date: 2020-07-14 00:01:59
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 21:56:25
+ * @LastEditTime: 2020-07-18 23:17:12
  */
 const path = require("path");
+const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const config = require("./config");
 const utils = require("./utils");
-const config = require("../config");
+const vueLoaderConfig = require("./vue-loader.conf");
+// 引入vue-laoder处理vue组件
 
 // +--------------内部公用配置和函数----------------------
-// 定义文件引入的方法
+// 定义根目录引入的方法
 function resolve(dir) {
   return path.join(__dirname, "..", dir);
 }
+
 // 定义eslint的配置
 const createLintingRule = () => ({
   test: /\.(js|vue)$/,
   loader: "eslint-loader",
   enforce: "pre",
-  include: [resolve("src"), resolve("test")],
+  include: [resolve("src")],
   options: {
     formatter: require("eslint-friendly-formatter"),
     emitWarning: !config.dev.showEslintErrorsInOverlay,
@@ -29,7 +33,7 @@ const createLintingRule = () => ({
 
 // +--------------webpack配置部分-------------------------
 module.exports = {
-  // 基础目录
+  // 基础目录，绝对路径，用于从配置中解析入口起点(entry point)和 loader
   context: path.resolve(__dirname, "../"),
   // 入口
   entry: {
@@ -60,6 +64,24 @@ module.exports = {
       // 确认是否开启eslint
       ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
+        test: /\.vue$/,
+        loader: "vue-loader",
+        options: vueLoaderConfig,
+      },
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            // 用babel-loader把es6->es5,也可以写入到外部文件babel.config.js
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-transform-runtime"],
+          },
+        },
+        include: path.resolve(__dirname, "src"), // 包含文件
+        exclude: /node_modules/, // 排除目录
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: "url-loader",
         options: {
@@ -85,6 +107,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new VueLoaderPlugin()],
   // 不知道这是什么意思
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

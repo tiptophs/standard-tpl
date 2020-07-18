@@ -10,7 +10,7 @@ const FriendlyErrorsPlugin = require("friendly-errors-webpack-plugin"); // webpa
 const CopyWebpackPlugin = require("copy-webpack-plugin"); // copy插件
 const baseWebpackConfig = require("./webpack.base.conf"); // 基础文件配置
 // 引入配置文件
-const config = require("../config");
+const config = require("./config");
 // 引入工具类
 const utils = require("./utils");
 
@@ -21,10 +21,10 @@ const PORT = process.env.PORT && Number(process.env.PORT);
 const devWebpackConfig = merge(baseWebpackConfig, {
   // 模块
   module: {
-    // rules: utils.styleLoaders({
-    //   sourceMap: config.dev.cssSourceMap,
-    //   usePostCSS: true,
-    // }),
+    rules: utils.styleLoaders({
+      sourceMap: config.dev.cssSourceMap,
+      usePostCSS: true,
+    }),
   },
   // cheap-module-eval-source-map 模式在开发模式最快
   devtool: config.dev.devtool,
@@ -59,7 +59,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // webpack 内置变量模板
     new webpack.DefinePlugin({
-      "process.env": require("../config/dev.env"), // 重置process.env
+      "process.env": require("./config/dev.env"), // 重置process.env
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(), // 当开启 HMR 的时候使用该插件会显示模块的相对路径，建议用于开发环境。
