@@ -4,10 +4,10 @@
  * @Author: tiptop
  * @Date: 2020-07-18 09:32:06
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 10:52:09
+ * @LastEditTime: 2020-07-19 11:48:31
  */
 
-require("./check-versions")();
+require("./utils/check-versions")();
 
 process.env.NODE_ENV = "production";
 
@@ -16,7 +16,7 @@ const rm = require("rimraf"); // rimraf 包的作用：以包的形式包装rm -
 const path = require("path");
 const chalk = require("chalk");
 const webpack = require("webpack");
-const config = require("../config");
+const config = require("./config");
 const webpackConfig = require("./webpack.prod.conf");
 
 const spinner = ora("building for production...");

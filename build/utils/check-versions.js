@@ -4,13 +4,13 @@
  * @Author: tiptop
  * @Date: 2020-07-18 09:32:20
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 10:09:20
+ * @LastEditTime: 2020-07-19 11:49:01
  */
 
 const chalk = require("chalk"); // 终端字符串美化
 const semver = require("semver"); // semver 是 语义化版本（Semantic Versioning）规范 的一个实现，目前是由 npm 的团队维护，实现了版本和版本范围的解析、计算、比较
 const shell = require("shelljs"); // Shelljs是Node.js下的脚本语言解析器，具有丰富且强大的底层操作(Windows/Linux/OS X)权限。Shelljs本质就是基于node的一层命令封装插件，让前端开发者可以不依赖linux也不依赖类似于cmder的转换工具，而是直接在我们最熟悉不过的javascript代码中编写shell命令实现功能。
-const packageConfig = require("../package.json");
+const packageConfig = require("../../package.json");
 
 // 子进程，同步进程
 function exec(cmd) {

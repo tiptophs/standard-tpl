@@ -4,14 +4,13 @@
  * @Author: tiptop
  * @Date: 2020-07-14 00:01:59
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 23:17:12
+ * @LastEditTime: 2020-07-19 10:10:25
  */
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const config = require("./config");
 const utils = require("./utils");
 const vueLoaderConfig = require("./vue-loader.conf");
-// 引入vue-laoder处理vue组件
 
 // +--------------内部公用配置和函数----------------------
 // 定义根目录引入的方法

@@ -4,10 +4,11 @@
  * @Author: tiptop
  * @Date: 2020-07-17 22:04:00
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 23:08:42
+ * @LastEditTime: 2020-07-19 11:04:17
  */
 
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const packageConfig = require("../../package.json");
 const config = require("../config");
 
@@ -74,12 +75,9 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
-      return ExtractTextPlugin.extract({
-        use: loaders,
-        fallback: "vue-style-loader",
-      });
+      return [MiniCssExtractPlugin.loader].concat(loaders);
     }
-    return ["vue-style-loader"].concat(loaders);
+    return ["style-loader"].concat(loaders);
   }
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
