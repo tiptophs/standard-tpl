@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-15 23:12:02
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-19 12:08:36
+ * @LastEditTime: 2020-07-19 15:16:29
  */
 
 const path = require("path");
@@ -55,12 +55,12 @@ module.exports = {
   // 运行环境配置
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, "../dist/index.html"),
+    index: path.resolve(__dirname, "../../dist/index.html"),
 
     // Paths相关的配置
-    assetsRoot: path.resolve(__dirname, "../dist"), // 打包地址
+    assetsRoot: path.resolve(__dirname, "../../dist"), // 打包地址
     assetsSubDirectory: "static",
-    assetsPublicPath: "/",
+    assetsPublicPath: "./",
 
     /**
      * Source Maps
