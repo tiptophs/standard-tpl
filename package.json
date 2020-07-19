@@ -64,6 +64,7 @@
     "babel-loader": "^8.1.0",
     "babel-preset-env": "^1.7.0",
     "babel-runtime": "^6.26.0",
+    "element-ui": "^2.13.2",
     "vue": "^2.6.11",
     "vue-router": "^3.3.4"
   },

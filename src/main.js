@@ -4,16 +4,20 @@
  * @Author: tiptop
  * @Date: 2020-07-13 00:14:27
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-18 22:12:10
+ * @LastEditTime: 2020-07-19 21:45:14
  */
 
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
+import ElementUI from "element-ui";
 import App from "./App";
 import router from "./router";
-
+import "element-ui/lib/theme-chalk/index.css";
+// 设置环境
 Vue.config.productionTip = false;
+
+Vue.use(ElementUI);
 
 /* eslint-disable no-new */
 new Vue({
