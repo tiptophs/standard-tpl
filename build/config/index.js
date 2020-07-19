@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-15 23:12:02
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-17 23:16:34
+ * @LastEditTime: 2020-07-19 12:08:36
  */
 
 const path = require("path");
@@ -28,7 +28,7 @@ module.exports = {
     // Use Eslint Loader?
     // If true, your code will be linted during bundling and
     // linting errors and warnings will be shown in the console.
-    useEslint: true,
+    useEslint: false,
     // If true, eslint errors and warnings will also be shown in the error overlay
     // in the browser.
     showEslintErrorsInOverlay: false,

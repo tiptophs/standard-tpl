@@ -4,13 +4,13 @@
  * @Author: tiptop
  * @Date: 2020-07-14 00:01:59
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-19 10:10:25
+ * @LastEditTime: 2020-07-19 12:02:00
  */
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const config = require("./config");
 const utils = require("./utils");
-const vueLoaderConfig = require("./vue-loader.conf");
+// const vueLoaderConfig = require("./vue-loader.conf");
 
 // +--------------内部公用配置和函数----------------------
 // 定义根目录引入的方法
@@ -65,7 +65,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: "vue-loader",
-        options: vueLoaderConfig,
+        // options: vueLoaderConfig,
       },
       {
         test: /\.js$/,
@@ -86,6 +86,7 @@ module.exports = {
         options: {
           limit: 8 * 1024,
           name: utils.assetsPath("img/[name].[hash:7].[ext]"),
+          esModule: false,
         },
       },
       {
@@ -108,16 +109,16 @@ module.exports = {
   },
   plugins: [new VueLoaderPlugin()],
   // 不知道这是什么意思
-  node: {
-    // prevent webpack from injecting useless setImmediate polyfill because Vue
-    // source contains it (although only uses it if it's native).
-    setImmediate: false,
-    // prevent webpack from injecting mocks to Node native modules
-    // that does not make sense for the client
-    dgram: "empty",
-    fs: "empty",
-    net: "empty",
-    tls: "empty",
-    child_process: "empty",
-  },
+  // node: {
+  //   // prevent webpack from injecting useless setImmediate polyfill because Vue
+  //   // source contains it (although only uses it if it's native).
+  //   setImmediate: false,
+  //   // prevent webpack from injecting mocks to Node native modules
+  //   // that does not make sense for the client
+  //   dgram: "empty",
+  //   fs: "empty",
+  //   net: "empty",
+  //   tls: "empty",
+  //   child_process: "empty",
+  // },
 };

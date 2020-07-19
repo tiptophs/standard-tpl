@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-17 22:04:00
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-19 11:04:17
+ * @LastEditTime: 2020-07-19 12:11:54
  */
 
 const path = require("path");
@@ -75,7 +75,8 @@ exports.cssLoaders = function (options) {
     // Extract CSS when that option is specified
     // (which is the case during production build)
     if (options.extract) {
-      return [MiniCssExtractPlugin.loader].concat(loaders);
+      // return [MiniCssExtractPlugin.loader].concat(loaders);
+      return ["style-loader"].concat(loaders);
     }
     return ["style-loader"].concat(loaders);
   }
@@ -103,6 +104,6 @@ exports.styleLoaders = function (options) {
       use: loader,
     });
   }
-
+  console.log(output);
   return output;
 };

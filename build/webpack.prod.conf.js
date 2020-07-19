@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-14 00:02:09
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-19 11:52:56
+ * @LastEditTime: 2020-07-19 12:13:20
  */
 const webpack = require("webpack");
 const { merge } = require("webpack-merge");
@@ -35,61 +35,61 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
-    new webpack.DefinePlugin({
-      "process.env": require("./config/prod.env"),
-    }),
+    // new webpack.DefinePlugin({
+    //   "process.env": require("./config/prod.env"),
+    // }),
     // css生成link的形式引入
-    new MiniCssExtractPlugin({
-      filename: "css/bundle.[hash:7].css",
-    }),
+    // new MiniCssExtractPlugin({
+    //   filename: "css/bundle.[hash:7].css",
+    // }),
     // Compress extracted CSS. We are using this plugin so that possible
     // duplicated CSS from different components can be deduped.
-    new OptimizeCSSPlugin({
-      cssProcessorOptions: config.build.productionSourceMap
-        ? { safe: true, map: { inline: false } }
-        : { safe: true },
-    }),
+    // new OptimizeCSSPlugin({
+    //   cssProcessorOptions: config.build.productionSourceMap
+    //     ? { safe: true, map: { inline: false } }
+    //     : { safe: true },
+    // }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
-    new HtmlWebpackPlugin({
-      filename: config.build.index,
-      template: "index.html",
-      inject: true,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true,
-        // more options:
-        // https://github.com/kangax/html-minifier#options-quick-reference
-      },
-      // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: "dependency",
-    }),
+    // new HtmlWebpackPlugin({
+    //   filename: config.build.index,
+    //   template: "index.html",
+    //   inject: true,
+    //   minify: {
+    //     removeComments: true,
+    //     collapseWhitespace: true,
+    //     removeAttributeQuotes: true,
+    //     // more options:
+    //     // https://github.com/kangax/html-minifier#options-quick-reference
+    //   },
+    //   // necessary to consistently work with multiple chunks via CommonsChunkPlugin
+    //   chunksSortMode: "dependency",
+    // }),
     // keep module.id stable when vendor modules does not change
-    new webpack.HashedModuleIdsPlugin(),
+    // new webpack.HashedModuleIdsPlugin(),
   ],
 });
 
-if (config.build.productionGzip) {
-  const CompressionWebpackPlugin = require("compression-webpack-plugin");
+// if (config.build.productionGzip) {
+//   const CompressionWebpackPlugin = require("compression-webpack-plugin");
 
-  webpackConfig.plugins.push(
-    new CompressionWebpackPlugin({
-      asset: "[path].gz[query]",
-      algorithm: "gzip",
-      test: new RegExp(
-        `\\.(${config.build.productionGzipExtensions.join("|")})$`
-      ),
-      threshold: 10240,
-      minRatio: 0.8,
-    })
-  );
-}
+//   webpackConfig.plugins.push(
+//     new CompressionWebpackPlugin({
+//       asset: "[path].gz[query]",
+//       algorithm: "gzip",
+//       test: new RegExp(
+//         `\\.(${config.build.productionGzipExtensions.join("|")})$`
+//       ),
+//       threshold: 10240,
+//       minRatio: 0.8,
+//     })
+//   );
+// }
 
 // 代码分析模块
-if (config.build.bundleAnalyzerReport) {
-  const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
-}
+// if (config.build.bundleAnalyzerReport) {
+//   const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
+//   webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+// }
 module.exports = webpackConfig;
