@@ -4,7 +4,7 @@
  * @Author: tiptop
  * @Date: 2020-07-19 16:04:23
  * @LastEditors: tiptop
- * @LastEditTime: 2020-07-20 00:31:38
+ * @LastEditTime: 2020-07-20 21:29:40
 -->
 <template>
   <div class="home-content">
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import card from "@/components/card";
+import card from "@/components/basics/card";
 
 export default {
   data() {},
